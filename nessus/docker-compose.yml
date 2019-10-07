@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  nessus:
+    restart: always
+    build: scanner
+    container_name: nessus
+    networks:
+      - nessusnet
+    environment:
+      - TZ=America/Santiago
+    ports:
+      - 8834:8834
+networks:
+  nessusnet:

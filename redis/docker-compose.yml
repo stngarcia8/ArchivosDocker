@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  redis:
+    image: redis:5.0.5
+    container_name: redis
+    networks:
+      - redisnet
+    expose:
+      - 6379
+    ports:
+      - 6379:6379
+    environment:
+      - TZ=America/Santiago
+      - ALLOW_EMPTY_PASSWORD=yes # Solo para desarrollo
+    volumes:
+      - redis_data:/data
+
+networks:
+  redisnet:
+
+volumes:
+  redis_data:

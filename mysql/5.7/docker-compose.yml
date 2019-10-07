@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  mysql-57:
+    image: mysql/mysql-server:5.7
+    container_name: mysql57
+    networks: 
+      - mysqlnet
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+    environment:
+      - TM=America/Santiago
+      - MYSQL_ROOT_PASSWORD=Clave.De@root@
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=Clave@De.usuario
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+networks:
+  mysqlnet:
+
+volumes:
+  mysql_data:
